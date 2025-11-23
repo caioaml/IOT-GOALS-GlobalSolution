@@ -8,7 +8,9 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+RUN chmod -R 755 node_modules/.bin
+
+RUN ./node_modules/.bin/tsc
 
 EXPOSE 10000
 
