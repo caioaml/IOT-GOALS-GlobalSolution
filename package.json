@@ -1,0 +1,27 @@
+{
+  "name": "goals-api",
+  "version": "1.0.0",
+  "description": "GOALS - Sistema de Gestão Financeira Inteligente com IA Generativa",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": ["fintech", "ai", "generative-ai", "goals", "fiap"],
+  "author": "Equipe GOALS - Global Solution 2025",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mssql": "^10.0.1",
+    "dotenv": "^16.3.1",
+    "@google/generative-ai": "^0.1.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.20",
+    "@types/mssql": "^9.1.4",
+    "@types/node": "^20.9.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  }
+}
