@@ -27,18 +27,3 @@ ENV NODE_ENV=production
 CMD ["node", "dist/app.js"]
 ```
 
----
-
-## 📄 Criar `.dockerignore` (na raiz do projeto)
-```
-node_modules
-npm-debug.log
-.env
-.git
-.gitignore
-README.md
-.vscode
-.DS_Store
-dist
-*.md
-docs/
