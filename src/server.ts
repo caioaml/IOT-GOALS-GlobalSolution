@@ -54,9 +54,10 @@ app.post('/ai/parse-text', async (req, res) => {
     });
   } catch (error) {
     console.error('Erro ao processar texto:', error);
+    const err = error as Error;
     res.status(500).json({ 
       error: 'Erro ao processar texto',
-      message: error.message 
+      message: err.message 
     });
   }
 });
@@ -86,9 +87,10 @@ app.get('/ai/coach', async (req, res) => {
     });
   } catch (error) {
     console.error('Erro ao gerar análise:', error);
+    const err = error as Error;
     res.status(500).json({ 
       error: 'Erro ao gerar análise',
-      message: error.message 
+      message: err.message 
     });
   }
 });
@@ -114,9 +116,10 @@ app.post('/ai/chat', async (req, res) => {
     });
   } catch (error) {
     console.error('Erro no chat:', error);
+    const err = error as Error;
     res.status(500).json({ 
       error: 'Erro ao processar pergunta',
-      message: error.message 
+      message: err.message 
     });
   }
 });
