@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import path from 'path';
 
 dotenv.config();
 
@@ -14,26 +15,12 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 app.use(cors());
 app.use(express.json());
 
-// ==========================================
-// ROTAS
-// ==========================================
+// ✅ SERVIR ARQUIVOS ESTÁTICOS (HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, '../public')));
 
-// 🏠 Rota raiz
-app.get('/', (req: Request, res: Response) => {
-  res.json({
-    message: '🎯 Bem-vindo à API GOALS!',
-    version: '1.0.0',
-    status: 'online',
-    endpoints: {
-      health: '/health',
-      parse_text: 'POST /ai/parse-text',
-      coach: 'GET /ai/coach?userId=XXX&period=week',
-      chat: 'POST /ai/chat'
-    },
-    documentation: 'https://github.com/caioaml/IOT-GOALS-GlobalSolution',
-    frontend: 'Abra o arquivo index.html no navegador'
-  });
-});
+// ==========================================
+// ROTAS DA API
+// ==========================================
 
 // 🏥 Health Check
 app.get('/health', (req: Request, res: Response) => {
@@ -139,6 +126,15 @@ app.post('/ai/chat', async (req: Request, res: Response) => {
 });
 
 // ==========================================
+// ROTA RAIZ - SERVIR O FRONTEND
+// ==========================================
+
+// 🏠 Página principal (deve vir por último)
+app.get('/', (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+// ==========================================
 // INICIAR SERVIDOR
 // ==========================================
 
@@ -150,6 +146,7 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
   console.log(`🌍 Ambiente: ${NODE_ENV}`);
   console.log(`📡 Health: http://localhost:${PORT}/health`);
+  console.log(`🎨 Frontend: http://localhost:${PORT}`);
   console.log('========================================');
   console.log('');
 });
