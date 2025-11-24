@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
@@ -19,7 +19,7 @@ app.use(express.json());
 // ==========================================
 
 // 🏥 Health Check
-app.get('/health', (req, res) => {
+app.get('/health', (req: Request, res: Response) => {
   res.json({
     status: 'ok',
     message: 'GOALS API rodando com sucesso!',
@@ -30,7 +30,7 @@ app.get('/health', (req, res) => {
 });
 
 // 🤖 Parse de Texto com IA
-app.post('/ai/parse-text', async (req, res) => {
+app.post('/ai/parse-text', async (req: Request, res: Response) => {
   try {
     const { texto } = req.body;
     
@@ -52,18 +52,17 @@ app.post('/ai/parse-text', async (req, res) => {
         data: new Date().toISOString().split('T')[0]
       }
     });
-  } catch (error) {
-    console.error('Erro ao processar texto:', error);
-    const err = error as Error;
+  } catch (err) {
+    console.error('Erro ao processar texto:', err);
     res.status(500).json({ 
       error: 'Erro ao processar texto',
-      message: err.message 
+      message: err instanceof Error ? err.message : 'Erro desconhecido'
     });
   }
 });
 
 // 🎓 Coach Financeiro
-app.get('/ai/coach', async (req, res) => {
+app.get('/ai/coach', async (req: Request, res: Response) => {
   try {
     const { userId, period } = req.query;
     
@@ -85,18 +84,17 @@ app.get('/ai/coach', async (req, res) => {
         insights: 'Análise gerada com sucesso!'
       }
     });
-  } catch (error) {
-    console.error('Erro ao gerar análise:', error);
-    const err = error as Error;
+  } catch (err) {
+    console.error('Erro ao gerar análise:', err);
     res.status(500).json({ 
       error: 'Erro ao gerar análise',
-      message: err.message 
+      message: err instanceof Error ? err.message : 'Erro desconhecido'
     });
   }
 });
 
 // 💬 Chat com IA
-app.post('/ai/chat', async (req, res) => {
+app.post('/ai/chat', async (req: Request, res: Response) => {
   try {
     const { pergunta, userId } = req.body;
     
@@ -114,12 +112,11 @@ app.post('/ai/chat', async (req, res) => {
       resposta: 'Para economizar mais, controle seus gastos diários e evite compras impulsivas!',
       fonte: 'GOALS AI'
     });
-  } catch (error) {
-    console.error('Erro no chat:', error);
-    const err = error as Error;
+  } catch (err) {
+    console.error('Erro no chat:', err);
     res.status(500).json({ 
       error: 'Erro ao processar pergunta',
-      message: err.message 
+      message: err instanceof Error ? err.message : 'Erro desconhecido'
     });
   }
 });
