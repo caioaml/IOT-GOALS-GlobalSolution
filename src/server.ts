@@ -18,6 +18,23 @@ app.use(express.json());
 // ROTAS
 // ==========================================
 
+// 🏠 Rota raiz
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    message: '🎯 Bem-vindo à API GOALS!',
+    version: '1.0.0',
+    status: 'online',
+    endpoints: {
+      health: '/health',
+      parse_text: 'POST /ai/parse-text',
+      coach: 'GET /ai/coach?userId=XXX&period=week',
+      chat: 'POST /ai/chat'
+    },
+    documentation: 'https://github.com/caioaml/IOT-GOALS-GlobalSolution',
+    frontend: 'Abra o arquivo index.html no navegador'
+  });
+});
+
 // 🏥 Health Check
 app.get('/health', (req: Request, res: Response) => {
   res.json({
