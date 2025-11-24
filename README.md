@@ -17,6 +17,8 @@
 
 ---
 
+Observação: Funcionalidades do aplicativo pode não funcionar devido desativação do banco de dados por conta do esgotamento créditos Azure (se deixassemos ligado, os creditos iriam acabar e teriamos que pagar para continuar rodando)
+
 ## 📋 Índice
 
 - [Sobre o Projeto](#-sobre-o-projeto)
