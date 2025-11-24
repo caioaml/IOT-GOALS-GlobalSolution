@@ -226,19 +226,6 @@ EXEMPLOS: [Few-shot learning examples]`;
 
 ---
 
-### 3. ☕ Java Advanced
-
-✅ **Programação Orientada a Objetos**
-- Encapsulamento via TypeScript classes
-- Interfaces e abstrações
-- Padrões de design (Service Layer, Repository Pattern)
-- SOLID principles aplicados
-- Separação de responsabilidades
-
-📂 **Implementação:** Toda a arquitetura do sistema
-
----
-
 ### 4. 🗄️ Mastering Relational and Non-Relational Database
 
 ✅ **Azure SQL Database**
@@ -290,31 +277,6 @@ Categories (Categorias)
 ```
 
 ---
-
-### 5. ✅ Compliance, Quality Assurance & Tests
-
-✅ **Qualidade e Segurança**
-- Try-catch em todas as funções críticas
-- Validações de entrada em múltiplas camadas
-- Logs estruturados para auditoria e debugging
-- Sistema de fallback para resiliência
-- Variáveis de ambiente (.env) para segurança
-- SQL parametrizado (proteção contra injection)
-- CORS configurado adequadamente
-
-📂 **Implementação:** Todo o código
-
----
-
-### 6. 📱 Mobile Application Development
-
-✅ **Interface Responsiva**
-- Mobile-first design approach
-- Breakpoints adaptativos (768px, 1024px, 1200px)
-- Touch-friendly (áreas de toque ≥ 44px)
-- PWA-ready (Progressive Web App)
-- Performance otimizada para conexões móveis
-- Loading states para feedback visual
 
 📂 **Implementação:** `public/index.html`
 
